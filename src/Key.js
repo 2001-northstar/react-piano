@@ -79,12 +79,16 @@ class Key extends React.Component {
     // because otherwise mobile taps double fire events.
     return (
       <div
-        className={classNames('ReactPiano__Key', {
-          'ReactPiano__Key--accidental': accidental,
-          'ReactPiano__Key--natural': !accidental,
-          'ReactPiano__Key--disabled': disabled,
-          'ReactPiano__Key--active': active,
-        })}
+        className={classNames(
+          'ReactPiano__Key',
+          {
+            'ReactPiano__Key--accidental': accidental,
+            'ReactPiano__Key--natural': !accidental,
+            'ReactPiano__Key--disabled': disabled,
+            'ReactPiano__Key--active': active,
+          },
+          `MidiNumber--${this.props.midiNumber}`,
+        )}
         style={{
           left: ratioToPercentage(this.getRelativeKeyPosition(midiNumber) * naturalKeyWidth),
           width: ratioToPercentage(
