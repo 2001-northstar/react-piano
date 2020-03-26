@@ -40,6 +40,7 @@ class Key extends React.Component {
 
   onPlayNoteInput = () => {
     this.props.onPlayNoteInput(this.props.midiNumber);
+    console.log('PLAYNOTEINPUT PROPS', this.props);
   };
 
   onStopNoteInput = () => {
