@@ -25,6 +25,7 @@ class ControlledPiano extends React.Component {
     ),
   };
 
+  //render argument: shorcut or note
   static defaultProps = {
     renderNoteLabel: ({ keyboardShortcut, midiNumber, isActive, isAccidental }) =>
       keyboardShortcut ? (
@@ -96,6 +97,9 @@ class ControlledPiano extends React.Component {
     return shortcut && shortcut.key;
   };
 
+  //write this f() or map midi numbers to notes
+  getNoteforMidiNumber = (midiNumber) => {};
+
   onKeyDown = (event) => {
     // Don't conflict with existing combinations like ctrl + t
     if (event.ctrlKey || event.metaKey || event.shiftKey) {
@@ -153,6 +157,8 @@ class ControlledPiano extends React.Component {
     });
   };
 
+  //write get note for midi number or map shortcuts to note names
+  //write conditional for which label to render
   renderNoteLabel = ({ midiNumber, isActive, isAccidental }) => {
     const keyboardShortcut = this.getKeyForMidiNumber(midiNumber);
     return this.props.renderNoteLabel({ keyboardShortcut, midiNumber, isActive, isAccidental });

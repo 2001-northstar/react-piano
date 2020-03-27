@@ -89,6 +89,8 @@ class Keyboard extends React.Component {
                     isActive,
                     isAccidental,
                     midiNumber,
+                    //extra argument for note or keyboard shortcut
+                    //where do we change this call easily from our capstone folder in a lesson?
                   })}
             </Key>
           );
