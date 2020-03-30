@@ -406,12 +406,13 @@ var Key = /*#__PURE__*/function (_React$Component) {
       // because otherwise mobile taps double fire events.
 
       return /*#__PURE__*/React.createElement("div", {
-        className: classNames('ReactPiano__Key', _defineProperty({
+        className: classNames('ReactPiano__Key', {
           'ReactPiano__Key--accidental': accidental,
           'ReactPiano__Key--natural': !accidental,
           'ReactPiano__Key--disabled': disabled,
-          'ReactPiano__Key--active': active
-        }, "ReactPiano__Key--active", highlighted), "MidiNumber--".concat(this.props.midiNumber)),
+          'ReactPiano__Key--active': active || highlighted // 'ReactPiano__Key--active': highlighted,
+
+        }, "MidiNumber--".concat(this.props.midiNumber)),
         style: {
           left: ratioToPercentage(this.getRelativeKeyPosition(midiNumber) * naturalKeyWidth),
           width: ratioToPercentage(accidental ? accidentalWidthRatio * naturalKeyWidth : naturalKeyWidth)

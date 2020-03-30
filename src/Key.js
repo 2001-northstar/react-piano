@@ -88,8 +88,8 @@ class Key extends React.Component {
             'ReactPiano__Key--accidental': accidental,
             'ReactPiano__Key--natural': !accidental,
             'ReactPiano__Key--disabled': disabled,
-            'ReactPiano__Key--active': active,
-            'ReactPiano__Key--active': highlighted,
+            'ReactPiano__Key--active': active || highlighted,
+            // 'ReactPiano__Key--active': highlighted,
           },
           `MidiNumber--${this.props.midiNumber}`,
         )}
