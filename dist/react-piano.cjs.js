@@ -410,8 +410,7 @@ var Key = /*#__PURE__*/function (_React$Component) {
           'ReactPiano__Key--accidental': accidental,
           'ReactPiano__Key--natural': !accidental,
           'ReactPiano__Key--disabled': disabled,
-          'ReactPiano__Key--active': active || highlighted // 'ReactPiano__Key--active': highlighted,
-
+          'ReactPiano__Key--active': active || highlighted
         }, "MidiNumber--".concat(this.props.midiNumber)),
         style: {
           left: ratioToPercentage(this.getRelativeKeyPosition(midiNumber) * naturalKeyWidth),
