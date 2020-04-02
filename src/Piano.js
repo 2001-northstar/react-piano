@@ -7,6 +7,7 @@ import Keyboard from './Keyboard';
 
 class Piano extends React.Component {
   static propTypes = {
+    callback: PropTypes.func,
     noteRange: PropTypes.object.isRequired,
     activeNotes: PropTypes.arrayOf(PropTypes.number.isRequired),
     highlightedNotes: PropTypes.arrayOf(PropTypes.number.isRequired),
@@ -31,6 +32,10 @@ class Piano extends React.Component {
     activeNotes: this.props.activeNotes || [],
     highlightedNotes: this.props.highlightedNotes || [],
   };
+
+  passToKeyboard(activeNotes) {
+    return this.props.callback(activeNotes);
+  }
 
   componentDidUpdate(prevProps) {
     // Make activeNotes "controllable" by using internal
@@ -65,6 +70,7 @@ class Piano extends React.Component {
       if (prevState.activeNotes.includes(midiNumber)) {
         return null;
       }
+      this.passToKeyboard(prevState.activeNotes.concat(midiNumber));
       return {
         activeNotes: prevState.activeNotes.concat(midiNumber),
       };

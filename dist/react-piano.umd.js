@@ -3500,6 +3500,8 @@
             return null;
           }
 
+          _this.passToKeyboard(prevState.activeNotes.concat(midiNumber));
+
           return {
             activeNotes: prevState.activeNotes.concat(midiNumber)
           };
@@ -3528,6 +3530,11 @@
     }
 
     _createClass(Piano, [{
+      key: "passToKeyboard",
+      value: function passToKeyboard(activeNotes) {
+        return this.props.callback(activeNotes);
+      }
+    }, {
       key: "componentDidUpdate",
       value: function componentDidUpdate(prevProps) {
         // Make activeNotes "controllable" by using internal
@@ -3566,6 +3573,7 @@
   }(React.Component);
 
   _defineProperty(Piano, "propTypes", {
+    callback: propTypes.func,
     noteRange: propTypes.object.isRequired,
     activeNotes: propTypes.arrayOf(propTypes.number.isRequired),
     highlightedNotes: propTypes.arrayOf(propTypes.number.isRequired),
